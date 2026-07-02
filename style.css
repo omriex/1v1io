@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #3fba54, #00c853);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-game__wrapper {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  max-width: 90%;
+  width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#main-game__header {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 6px #000;
+}
+
+#menu__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 20px;
+}
+
+#server__select,
+#name__input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #ffffffee;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#play-game__button {
+  padding: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #00e676, #00c853);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+#play-game__button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.side-panel {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  max-width: 90vw;
+  height: calc(var(--center-h, 320px) * 2);
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  padding: 1.75rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+/* Stuck to the left viewport edge */
+#updates__panel {
+  left: 16px;
+}
+
+/* Stuck to the right viewport edge */
+#settings__panel {
+  right: 16px;
+}
+
+.side-panel__title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 6px #000;
+}
+
+.side-panel__intro {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.side-panel__list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.side-panel__note {
+  margin-top: auto;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.setting {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.setting--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.setting__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.setting__label span {
+  font-variant-numeric: tabular-nums;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+#fov__slider {
+  width: 100%;
+  accent-color: #00e676;
+  cursor: pointer;
+}
+
+#accent__color {
+  width: 100%;
+  height: 40px;
+  padding: 2px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffffee;
+  cursor: pointer;
+}
+
+#fullscreen__toggle {
+  width: 20px;
+  height: 20px;
+  accent-color: #00e676;
+  cursor: pointer;
+}
+
+/* On narrow screens the flanking panels won't fit; hide them */
+@media (max-width: 1100px) {
+  .side-panel {
+    display: none;
+  }
+}
+
+#chat__input {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 15px;
+  font-size: 1rem;
+  background: rgba(0, 255, 0, 0.2);
+  border: none;
+  border-radius: 8px;
+  color: #f1c34c;
+  text-shadow: 1px 1px #000;
+  max-width: 50%;
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 500px) {
+  #main-game__header {
+    font-size: 2.2rem;
+  }
+
+  #play-game__button {
+    font-size: 1.5rem;
+  }
+}
+
+#credits__wrapper {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  margin: 5px;
+  color: white;
+  text-shadow: 1px 1px 2px #000;
+}
+
+#social-links {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px 2px #000;
+  font-weight: bold;
+}
